@@ -36,6 +36,13 @@ func (p Pos[N]) Sub(other Pos[N]) Pos[N] {
 	}
 }
 
+func (p Pos[N]) Scale(factor N) Pos[N] {
+	return Pos[N]{
+		X: N(float64(p.X) * float64(factor)),
+		Y: N(float64(p.Y) * float64(factor)),
+	}
+}
+
 func (p Pos[N]) Eq(other Pos[N]) bool {
 	return p.X == other.X && p.Y == other.Y
 }
@@ -56,4 +63,8 @@ func (p Pos[N]) ToIntPos() Pos[int] {
 		X: int(p.X),
 		Y: int(p.Y),
 	}
+}
+
+func (p Pos[N]) ToDims() Dims[N] {
+	return Dims[N](p)
 }
