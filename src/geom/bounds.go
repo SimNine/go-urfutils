@@ -46,7 +46,7 @@ func (b Bounds[N]) Union(other Bounds[N]) Bounds[N] {
 	)
 }
 
-func (b Bounds[N]) And(other Bounds[N]) (Bounds[N], bool) {
+func (b Bounds[N]) Intersection(other Bounds[N]) (Bounds[N], bool) {
 	minX := max(b.Pos.X, other.Pos.X)
 	minY := max(b.Pos.Y, other.Pos.Y)
 	thisOpp := b.OppositeCorner()
