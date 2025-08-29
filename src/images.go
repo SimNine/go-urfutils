@@ -1,8 +1,11 @@
 package urfutils
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"github.com/SimNine/go-urfutils/src/geom"
+	"github.com/hajimehoshi/ebiten/v2"
+)
 
-func ScaleEbitenImage(image *ebiten.Image, dims Dims) *ebiten.Image {
+func ScaleEbitenImage(image *ebiten.Image, dims geom.Dims[int]) *ebiten.Image {
 	ops := &ebiten.DrawImageOptions{}
 	bounds := image.Bounds().Size()
 	xRatio := float64(bounds.X) / float64(dims.X)
